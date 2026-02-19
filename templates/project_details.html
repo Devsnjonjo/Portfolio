@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} {{project.title}} - My Portfolio{%endblock %}
+
+{% block content%}
+<section class="py-5">
+    <div class="container">
+        <!-- Back Button -->
+         <a href="{{url_for('portfolio')}}" class="btn btn-outline-secondary mb-3">Back to Portfolio</a>
+    </div>
+
+<!-- section header -->
+ <section class="row mb-3">
+    <div class="col-lg-8">
+        <h5 class="display-5 mb-3">{{project.title}}</h5>
+        <p class="lead text-muted">{{project.description}}</p>
+    </div>
+  </section>
+  <!-- Technologies Used -->
+        <div class="mb-4">
+            <h5 class="mb-3">Technologies Used:</h5>
+            <div class="d-flex flex-wrap gap-2">
+                {% for tech in project.technologies %}
+                <span class="badge bg-primary">{{ tech }}</span>
+                {% endfor %}
+            </div>
+            <!-- Project links -->
+             <div class="d-flex gap-3 mt-5">
+        <a href="{{project.github }}" target="_blank" class="btn btn-dark">View on Github</a>
+        <a href="{{ project.live_demo }}" class="btn btn-success">View Live Demo</a>
+
+             </div>
+        </div>
+</section>
+
+
+
+{% endblock %}
