@@ -37,8 +37,28 @@ PROJECTS= {
                 'Analytics dashboard with charts'
             ],
             'challenges': 'Implementing real-time updates across multiple users was complex. I used WebSockets with Redis pub/sub to ensure all team members saw updates instantly without performance degradation.',
-            'github': 'https://github.com/yourusername/task-manager',
-            'live_demo': 'https://demo-tasks.example.com'
+                'github': 'https://github.com/yourusername/task-manager',
+                'live_demo': 'https://demo-tasks.example.com'
+            },
+           'project-three': {
+    'id': 'project-three',
+    'title': 'Social Media Platform',
+    'short_description': 'A full-featured social media platform for sharing content and connecting with friends',
+    'image': 'p6.jpg',
+    'technologies': ['Python', 'Flask', 'React', 'MongoDB', 'Socket.io'],
+    'description': 'Built a comprehensive social media platform enabling users to share content, connect with friends, and engage through likes and comments. Features real-time notifications and a responsive mobile-friendly design.',
+    'features': [
+        'User authentication with JWT tokens',
+        'Create, edit, and delete posts with media uploads',
+        'Real-time notifications and messaging',
+        'User profiles with followers/following system',
+        'Like and comment functionality',
+        'Hashtag and trending posts discovery',
+        'Mobile-responsive design'
+    ],
+    'challenges': 'The primary challenge was handling real-time notifications at scale. I implemented Socket.io with Redis adapter to ensure instant updates across all connected users while maintaining database efficiency.',
+    'github': 'https://github.com/yourusername/social-media-platform',
+    'live_demo': 'https://demo-social.example.com'
         }
 }
 # routes/
@@ -76,5 +96,8 @@ def project_details(project_id):
         abort(404)
     return render_template('project_details.html',project=project)
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port='5001')
